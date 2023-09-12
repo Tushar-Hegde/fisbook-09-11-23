@@ -1,0 +1,11 @@
+<h1>Public Forums:</h1>
+{% for forum in forums %}
+    <a href="{% url 'forums:forum' forum.id %}">{{forum.name}}</a>
+{% endfor %}
+
+<br>
+
+<h1>Public Events:</h1>
+{% for event in events %}
+    <a href="{% url 'forums:event' event.id %}">{{event.title}}</a>
+{% endfor %}

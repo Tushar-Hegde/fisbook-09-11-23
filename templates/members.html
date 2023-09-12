@@ -1,0 +1,3 @@
+{% for member in members %}
+    <a href="{% url 'pages:user' member.reg_no %}">{{member.first_name}} - {{member.reg_no}}</a>
+{% endfor %}

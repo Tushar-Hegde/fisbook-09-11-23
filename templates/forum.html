@@ -1,0 +1,86 @@
+<html>
+    <head>
+        <title>{{forum.name}}</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+        <style>
+            body{
+                background-color: #f8e9a1
+            }
+            h3{
+                
+                font-family:'Courier New', Courier, monospace;
+                font-weight:bold;
+            }
+            .nav-link:hover{
+                text-decoration:underline
+            }
+            body{
+                background-color: #f8e9a1
+            }
+            nav{
+                background-color: #daad86
+            }
+            .carouselText{
+                color:white;
+            }
+            .card{
+                background-color:#daad86
+            }
+            .cardContainer{
+                background-color:#f8e9a1
+            }
+            li{
+                border-radius:10px;
+            }
+            .row{
+                overflow-x:auto;
+                max-width: 100%;
+            }
+        </style>
+    </head>
+    <body>
+        <div class = 'container p-5 my-3 bg-dark text-light'>
+            <h1><center> {{forum.name}} </center></h1>
+        </div>
+        <div class = 'container p-5 my-2 bg-secondary text-dark'>
+            <h3>{{forum.about}}</h3>
+        </div>
+        
+        <br>
+        <div class = 'container my-4 p-4 bg-dark text-light'>
+            <h2>Events</h2>
+        </div>
+        <div class = 'row'>
+            {% for event in events %}
+              <div class = 'col'>
+                <div class = 'card w-5 mb-3'>
+                  <div class = 'card-body'>
+                    <div class = 'card-title'>
+                      <h2> {{event.title}} </h2>
+                    </div>
+                    <ul class = 'list-group list-group-flush'>
+                      
+                      <li class = 'list-group-item'> {{event.about}} </li>
+                      <li class = 'list-group-item'> {{event.date}} </li>
+                    </ul>
+                    <br>
+                    <center><a class = 'btn btn-success' href = '{% url 'forums:event' event.id %}'>Go To Event</a></center>
+                  </div>
+                </div>
+              </div>
+            {% endfor %}
+        </div>
+        <h2>Notices:</h2>
+        {% for notice in notices %}
+            <p>{{notice.title}}</p>
+        {% empty %}
+            <p>Nothing here yet</p>
+        {% endfor %}
+
+    </body>
+
+</html>
+
+

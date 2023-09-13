@@ -42,7 +42,7 @@
             var csrf='{{csrf_token}}'
             $.ajax({
                 type:'POST',
-                url:'/send',
+                url:'/chat/send',
                 data:{
                     user:$("#name").val(),
                     value:$("#msg").val(),
@@ -58,7 +58,7 @@
             
             $.ajax({
                 type: 'GET',
-                url: '/get/' + room,
+                url: '/chat/get/' + room,
                 success: function(response) {
                     var messages = response.messages;
                     var messagesContainer = $("#messagesContainer");

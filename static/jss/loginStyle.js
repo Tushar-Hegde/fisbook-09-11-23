@@ -1,5 +1,4 @@
 import * as THREE from 'three';
-import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 
 document.addEventListener('DOMContentLoaded', function(){
 
@@ -21,11 +20,10 @@ document.addEventListener('DOMContentLoaded', function(){
     const ambientLight = new THREE.AmbientLight(0xffffff);
     scene.add(ambientLight);
 
-    const controls = new OrbitControls(camera, renderer.domElement)
+   
     const animate = () => {
         torus.rotation.x+=0.02;
         renderer.render(scene, camera);
-        controls.update();
         requestAnimationFrame(animate);
         
     }

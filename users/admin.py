@@ -33,6 +33,7 @@ class CustomUserAdmin(UserAdmin):
                 },
             ),
             (("Important dates"), {"fields": ("last_login",)}),
+            (("pic"),{"fields":("pic",)}),
         )
     
 admin.site.register(get_user_model(),CustomUserAdmin)

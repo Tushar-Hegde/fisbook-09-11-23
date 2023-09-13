@@ -1,7 +1,6 @@
 from django.db import models
 from users.models import CustomUser
 
-
 # Create your models here.
 
 class Forum(models.Model):
@@ -12,7 +11,8 @@ class Forum(models.Model):
     users = models.ManyToManyField(CustomUser,related_name='forums')
     mods = models.ManyToManyField(CustomUser,related_name='mod_forums')
     is_public = models.BooleanField(default=False)
-    pic = models.ImageField(upload_to='forums',default='media/forums/Dragonfruit2.jpg')
+    pic = models.ImageField(upload_to='forums', default='media/forums/Dragonfruit2.jpg')
+    
     
     
 
@@ -33,5 +33,3 @@ class Notices(models.Model):
     forum = models.ManyToManyField(Forum,related_name='notices')
     title = models.CharField(max_length=150)
     about = models.TextField()
-    
-    

@@ -13,3 +13,4 @@ class CustomUser(AbstractBaseUser,PermissionsMixin):
     USERNAME_FIELD = 'reg_no'
     REQUIRED_FIELDS=['first_name']
     objects = CustomUserManager()
+    pic = models.ImageField(upload_to='profiles', default='media/forums/Dragonfruit2.jpg')

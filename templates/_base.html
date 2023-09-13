@@ -35,7 +35,7 @@
         <ul class = 'navbar-nav mr-auto'>
             <h2>Navigate: </h4> &nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp
             <h4><li><a class = 'nav-link' href = "{% url 'pages:home' %}">Homepage</a></h4>
-            <h4><li><a class = 'nav-link' href = "#">Profile</a></h4>
+            <h4><li><a class = 'nav-link' href = "{% url 'pages:user' request.user %}">Profile</a></h4>
             <h4><li><a class = 'nav-link' href="{% url 'users:logout' %}">Log out</a></li></h4>
         </ul>
     </nav>

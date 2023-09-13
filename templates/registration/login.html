@@ -1,7 +1,7 @@
 
 <form method="post">
-    {% csrf_token %}
-    {{form.as_p}}
-    <button name="submit">Log In</button>
-    <input type="hidden" name="next" value="{% url 'pages:home' %}" />
+  {% csrf_token %}
+  {{form.as_p}}
+  <button name="submit">Log In</button>
+  <input type="hidden" name="next" value="{% url 'pages:home' %}" />
 </form>

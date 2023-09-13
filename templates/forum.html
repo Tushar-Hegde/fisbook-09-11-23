@@ -1,3 +1,5 @@
+
+{% extends '_base.html' %}
 <html>
     <head>
         <title>{{forum.name}}</title>
@@ -38,14 +40,39 @@
                 overflow-x:auto;
                 max-width: 100%;
             }
+            button{
+                background-color: #45a29e;
+                width: 300px;
+                height: 70px;
+                font-weight: bold;
+                font-size: 200%;
+                border-radius: 50px;
+                color:#0b0c10;
+                position:relative;
+                font-family: courier;
+              }
         </style>
     </head>
     <body>
+        {% block content %}
+
+        
+        
         <div class = 'container p-5 my-3 bg-dark text-light'>
             <h1><center> {{forum.name}} </center></h1>
         </div>
         <div class = 'container p-5 my-2 bg-secondary text-dark'>
             <h3>{{forum.about}}</h3>
+            
+        <form method = 'POST' type = 'hidden' id = 'postForm'>
+            {% csrf_token %}
+            <input type = 'hidden' id = 'roomName' value = {{forum.name}}>
+            <input type = 'hidden' id= 'id' value = {{forum.id}}>
+            <button type = 'submit' class = 'btn btn-success btn-lg'>Chat</button>
+        </form>      
+            
+            
+            
         </div>
         
         <br>
@@ -66,7 +93,7 @@
                       <li class = 'list-group-item'> {{event.date}} </li>
                     </ul>
                     <br>
-                    <center><a class = 'btn btn-success' href = '{% url 'forums:event' event.id %}'>Go To Event</a></center>
+                    <center><a class = 'btn btn-success' href = "{% url 'forums:event' event.id %}">Go To Event</a></center>
                   </div>
                 </div>
               </div>
@@ -78,7 +105,8 @@
         {% empty %}
             <p>Nothing here yet</p>
         {% endfor %}
-
+        {% endblock content %}
+       
     </body>
 
 </html>
